@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="buttonAdd">+</string>
+    <string name="title_activity_display_add_action">DisplayAddAction</string>
+    <string name="task_name">Title</string>
+    <string name="task_content">Content</string>
+    <string name="task_date">Date</string>
+    <string name="task_select">Select</string>
+</resources>
