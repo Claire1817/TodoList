@@ -1,5 +1,6 @@
 package com.example.claire.todolist;
 
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 /**
@@ -10,4 +11,5 @@ public class ViewHolder {
     public TextView name;
     public TextView date;
     public TextView content;
+    public CheckBox check;
 }

@@ -16,6 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME= "name";
     public static final String COLUMN_CONTENT = "content";
     public static final String COLUMN_DATE ="date";
+    public static final String COLUMN_CHECK = "check_done";
 
     private static final String DATABASE_NAME = "task.db";
     private static final int DATABASE_VERSION = 2;
@@ -26,7 +27,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_NAME + " text not null,"
             + COLUMN_CONTENT + " text not null,"
-            + COLUMN_DATE + " date not null"
+            + COLUMN_DATE + " date not null,"
+            + COLUMN_CHECK + " integer not null"
             + ");";
 
 

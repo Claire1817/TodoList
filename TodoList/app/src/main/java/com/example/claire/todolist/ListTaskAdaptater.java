@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -43,9 +44,10 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
     @Override
     public View getView(final int position, final View convertView, ViewGroup parent) {
         View row = convertView;
-        ViewHolder holder;
+        final ViewHolder holder;
         ImageButton delete_button;
         ImageButton modif_button;
+        final CheckBox check;
 
         if(row == null)
         {
@@ -57,6 +59,7 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
             holder.name= (TextView) row.findViewById(R.id.listName);
             holder.content = (TextView) row.findViewById(R.id.ListContent);
             holder.date = (TextView) row.findViewById(R.id.ListDate);
+            holder.check = (CheckBox)row.findViewById(R.id.checkbox);
 
             modif_button = (ImageButton)row.findViewById(R.id.button_modif);
             delete_button = (ImageButton)row.findViewById(R.id.button_delete);
@@ -79,6 +82,23 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
                     MainActivity.dataSource.deleteTask(taskdelete);
                 }
             });
+
+            holder.check.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    if (holder.check.isChecked()) {
+                        String name = data.get(position).getName();
+                        data.get(position).setCheck(true);
+                        MainActivity.dataSource.updateCheck(name, 1);
+                    } else {
+                        String name = data.get(position).getName();
+                        data.get(position).setCheck(true);
+                        MainActivity.dataSource.updateCheck(name, 0);
+
+                    }
+                }
+            });
+
             row.setTag(holder);
         }
         else {
@@ -89,6 +109,7 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
         holder.name.setText(tasks.getName());
         holder.date.setText(tasks.getDate());
         holder.content.setText(tasks.getContent());
+        holder.check.setChecked(tasks.getCheck());
         return row;
     }
 

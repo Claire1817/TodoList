@@ -8,6 +8,7 @@ public class TaskModel {
 
     private long id;
     private String name;
+    private boolean check;
 
     public void setContent(String content) {
         this.content = content;
@@ -44,5 +45,13 @@ public class TaskModel {
     }
 
     private String date;
+
+    public boolean getCheck() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
 
 }

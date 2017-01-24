@@ -82,7 +82,7 @@ public class DisplayAddAction extends AppCompatActivity {
                 String taskDate = task_date_editText.getText().toString();
 
                 if (!taskDate.isEmpty() && !taskName.isEmpty() && !taskContent.isEmpty()) {
-                    MainActivity.dataSource.createTaskModel(taskName, taskContent, taskDate);
+                    MainActivity.dataSource.createTaskModel(taskName, taskContent, taskDate, 0);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "The title, name and date couldn't be empty ", Toast.LENGTH_LONG).show();

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class MainActivity extends Activity{
     public static TaskDataSource dataSource;
     Button button_add;
     public ListView list;
+    CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends Activity{
 
         dataSource = new TaskDataSource(this);
         dataSource.open();
+
 
 
         list = (ListView)findViewById(R.id.list_item);
