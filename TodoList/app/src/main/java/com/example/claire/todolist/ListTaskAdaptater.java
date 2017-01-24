@@ -60,16 +60,6 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
 
             modif_button = (ImageButton)row.findViewById(R.id.button_modif);
             delete_button = (ImageButton)row.findViewById(R.id.button_delete);
-
-            delete_button.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                   TaskModel taskdelete = data.get(position);
-                    data.remove(data.get(position));
-                    notifyDataSetChanged();
-                    MainActivity.dataSource.deleteTaskModel(taskdelete);
-                }
-            });
             modif_button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -79,14 +69,21 @@ public class ListTaskAdaptater extends ArrayAdapter<TaskModel> {
                     context.startActivity(intent);
                 }
             });
+
+            delete_button.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    TaskModel taskdelete = data.get(position);
+                    data.remove(data.get(position));
+                    notifyDataSetChanged();
+                    MainActivity.dataSource.deleteTask(taskdelete);
+                }
+            });
             row.setTag(holder);
         }
-        else
-        {
+        else {
             holder = (ViewHolder) row.getTag();
         }
-
-
 
         TaskModel tasks = data.get(position);
         holder.name.setText(tasks.getName());

@@ -56,10 +56,11 @@ public class TaskDataSource {
         return newTaskModel;
     }
 
-    public void deleteTaskModel(TaskModel TaskModel){
-        String name = TaskModel.getName();
-        System.out.println("Task deleted with name :" + name );
-        database.delete(MySQLiteHelper.TABLE_TASKS, MySQLiteHelper.COLUMN_NAME + " = "+ name, null);
+    public void deleteTask(TaskModel comment) {
+        long id = comment.getId();
+        System.out.println("Comment deleted with id: " + id);
+        database.delete(MySQLiteHelper.TABLE_TASKS, MySQLiteHelper.COLUMN_ID
+                + " = " + id, null);
     }
 
     public List<TaskModel> getAllTask() {
