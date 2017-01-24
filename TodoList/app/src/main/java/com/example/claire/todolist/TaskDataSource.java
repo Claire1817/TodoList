@@ -92,6 +92,14 @@ public class TaskDataSource {
         return names;
     }
 
+    public void queryUpdate(String name, String content, String date) {
+        ContentValues data = new ContentValues();
+        data.put(MySQLiteHelper.COLUMN_CONTENT, content);
+        data.put(MySQLiteHelper.COLUMN_DATE, date);
+
+        database.update(MySQLiteHelper.TABLE_TASKS, data, "name = ?", new String[]{name});
+    }
+
     public List<String> getAllDates() {
         List<String> dates = new ArrayList<String>();
 
